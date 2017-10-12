@@ -1,0 +1,27 @@
+The Assignment(Presentation) title for your group is "a) Pavel Karas, "GPU Acceleration of Image Processing Algorithms", Masaryk University, 2010. b) Erik Smistad et al., "GPU Accelerated Segmentation and Centerline Extraction of Tubular Structures from Medical Images", International Journal of Computer Assisted Radiology and Surgery, July 2014, Springer  c) James Fung, "Advances in GPU-based Image Processing and Computer Vision", NVIDIA. " and the group members are expected to submit the summary of the presenation in handwritten (Minimum 10 Pages).The handwritten document will be collected by me in the classroom itself on 31-March-2016. The Powerpoint presentation should be ready by 1st April and send it to rs133@iiita.ac.in. After Receiving the above mentioned documents the presentation slots will be announced on or before 5-April-2016.
+
+The Mini-project title for your group is "GPU/CUDA implemtation of Image Processing algorithm e.g. at s.no. (b) on presentation title. ".  You can use any method/Algorithm to solve the particular problem. ). For mini-project 6-8 pages summary of soft copy should be submitted to email ID "rs133@iiita.ac.in""; put your group number in the subject. Contents should be in the soft copy:
+
+1.Methodology used
+
+2.Related methods
+
+3.Experimental results
+
+4.Evaluation of the methodology
+
+5.Discussion
+
+Evaluation of Mini-Project will be on 28-April-2016(Tentative).
+
+Note: Acknowledge the mail by sending a reply as "Titles Received".
+
+In case of any doubts regarding the presentation and Mini-project you can contact me.
+
+ 
+
+Contact Details:
+
+Mob No: 9794172048
+
+Mail: rs133@iiita.ac.in

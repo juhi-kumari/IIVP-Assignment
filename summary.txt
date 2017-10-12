@@ -1,0 +1,24 @@
+Paper: GPU Accelerated Segmentation and Centerline Extraction of Tubular Structures from Medical Images
+
+Authors: Erik Smistad, Anne C. Elster, and Frank Lindseth
+
+
+Purpose:
+To create a fast and generic method with sufficient quality for extracting tubular structures such as blood vessels and airways from different modalities (CT, MR and US) and organs (brain, lungs and liver) by utilizing the computational power of graphic processing units (GPUs).
+
+
+Introduction:
+Blood vessels and airways are both examples of important tubular structures in the human body. The extraction of these structures can be essential for planning and guidance of several surgical procedures such as bronchoscopy, laparoscopy and neurosurgery.
+
+Registration is an important
+step in image guided surgery as it enables us to accurately
+plot the location of surgical tools inside the body onto im-
+ages of the patient using optical or magnetic tracking tech-
+nology. 
+
+During surgical procedures, anatomical struc-
+tures have a tendency to move and deform inside the body
+due to respiration, pulsation, external pressure and resection.
+This is called anatomical shift and is a major challenge as
+it reduces the surgical navigation accuracy. 
+

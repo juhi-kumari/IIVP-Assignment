@@ -1,0 +1,770 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq0\fcharset128 Times New Roman;}{\f6\froman\fprq0\fcharset128 Arial;}{\f7\froman\fprq0\fcharset128 Times New Roman Greek;}{\f8\froman\fprq0\fcharset128 Cambria Math;}{\f9\froman\fprq0\fcharset128 Courier New;}{\f10\froman\fprq0\fcharset128 Calibri;}{\f11\fnil\fprq2\fcharset0 Droid Sans Fallback;}{\f12\fnil\fprq2\fcharset0 FreeSans;}{\f13\fswiss\fprq0\fcharset128 FreeSans;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\dbch\af11\dbch\af12\afs28\loch\f4\fs28 Heading;}
+{\s16\sbasedon0\snext16\sl288\slmult1\sb0\sa140 Text Body;}
+{\s17\sbasedon16\snext17\sl288\slmult1\sb0\sa140\dbch\af13 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af13\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af13 Index;}
+}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment LibreOffice}{\vern67241986}}\deftab720
+\viewscale100
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1800\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+GPU Accelerated Segmentation and Centerline Extraction of Tubular Structures from Medical Images}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+AIM:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+To create a fast and generic method with sufficient}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+quality for extracting tubular structures such as blood vessels and airways from different modalities (CT, MR and US)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+and organs (brain, lungs and liver) by utilizing the computational power of graphic processing units (GPUs). and comparing different methods and its speed and memory usage.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+METHODS FOR EXTRACTING TUBULAR STRUCTURE:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Tubular structures are usually extracted from volumes in two}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+different ways:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\fs24\lang9\loch\f5
+\u8211\'3f }{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+As a }{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+segmentation}{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+, either as a binary classification where}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+each voxel in the volume is given a non-zero value if it}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+belongs to the tubular structure or as a surface model of}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+the structure.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\fs24\lang9\loch\f5
+\u8211\'3f }{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+As a }{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+centerline}{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+, i.e. a line that goes through the center}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+of the tubular structures.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Both representations are useful in different applications.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The centerline is very useful for registration}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+while the segmentation is useful for volume estimation and}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+visualization of the structures\uc2 \u8217\'81\'66 surface.\uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Segementation:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+to grow the segmentation iteratively from an initial point or}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+area using methods such as region growing [27,45,16], active contours and wave front propagation}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+. A centerline can then be extracted}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+from the segmentation using skeletonization and 3D thinning methods }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Growing a segmentation using only a model of desired}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+intensity values has shown to give limited result in several}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+applications such as airway segmentation where the thin airway walls may cause severe segmentation leakage.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+But many times, requires to use a model of the shape of the tubular structures.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Tube Detection Filters (TDFs):}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+used to detect tubular structures and calculates a probability that a specific voxel is inside a tubular structure.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Most TDFs use gradient information,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+A centerline can be extracted directly from the TDF result using }{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+ridge traversal }{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+or segmentation.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Methodology:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The implementation is written in C++ and OpenCL.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The implementation consists of five main steps that are all executed on the GPU .}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+1. Cropping : to reduce the total memory usage}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+2. Pre Processing  : to make the results less sensitive to noise and differences in tube contrast and size.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+3.TDF : the model-based TDF.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+4.Centerline Detection : From the TDF result, the centerlines are extracted using a new parallel algorithm.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+5.Segmentation : segmentation is performed using the centerlines as seeds for a region growing procedure.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+CROPPING:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Most medical datasets contain a lot of data that is not part of the structures of interest. Usually these areas are located at the borders of the image.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+will reduce memory usage and execution time.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The cropping method works by considering slices in all three orthogonal directions x, y and z. For}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+each slice }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+s}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+, the method determines if the slice intersects the region of interest (ROI). }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+This is done by counting the number of rows in the slice that intersects the ROI for each slice}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+and storing it as }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Ls}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+. If }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Ls }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+> }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min, the slice is considered to have intersected the ROI. The cropping borders are found by}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+traversing through }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Ls }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+twice from }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+s }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f6
+= }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+0 and }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+s }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f6
+= }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+size and finding the first slice that has a value above a specific threshold}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min. These slices are then selected as cropping borders }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+c}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+1 and }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+c}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+2. This is done for each direction and results in 3 pairs}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+of cropping borders which is all that is needed to crop the volume. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Cropping Algorithm:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The function CALCULATEL is used for estimating }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+for each}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+slice in a given direction and the function FINDCROPBORDERS is used to find the cropping borders for a specific direction given }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+and using the threshold }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min. Each direction and slice can be processed in parallel on the GPU.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+The parts of this cropping method that is application dependent, aside from the parameter }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+L}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min, is the estimation of}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Ls }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+and whether the search for cropping borders starts from the middle or at the ends of the dataset in a given direction}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Pre-processing and Gradient Vector Flow:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+1. First, an optional thresholding is performed on}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+the dataset using a lower and upper threshold (}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+I}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min and }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+I}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+max).}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Thresholding may be necessary for datasets which have a}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+large range of intensity values. The thresholding is done to remove unnecessary gradient information}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+in the image which may lead to unwanted tubular structures being detected.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+2. Second, some noise suppression is performed. This is done by blurring the dataset using Gaussian smoothing with standard deviation }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u963\'83\'d0\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+3. Afterwards, the gradient vector field }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+V }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+is created and normalized using a parameter called }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+V}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+max. All gradients with a}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+length above this parameter will be set to unit length and}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+the others will be scaled accordingly. The gradient normalization is necessary for contrast invariance. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+V}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+max should be}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+adapted to the expected level of contrast and noise. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+All of these preprocessing parameters (}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+I}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+min, }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+I}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+max, }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u963\'83\'d0\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+, }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+V}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+max) are modality dependent.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Filters that use the Hessian matrix to detect tubular structures require gradient information to be present in the center}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+of the tube. Two main methods to propagate the gradient information from the tube edge to the center.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+1. Gaussian scale space}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+2. Gradient Vector Flow (GVF)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The GVF method has the advantage that it is feature-preserving and thus can avoid the problem of several structures diffusing into each other to create the illusion of a tubular structure at a higher scale. Also, GVF is only calculated using one scale. However, it has the disadvantage that it is very computationally expensive. But, it can be accelerated}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+using GPUs. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Tube Detection Filter :}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The TDF starts by creating a circle with a small radius in the cross-sectional plane. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+N }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+= }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+32 evenly spaced}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+points on the circle is sampled from the vector field. Each point, }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+, is found by calculating its angle }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u945\'83\'bf \uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+from the center}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and then calculating a vector }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i  }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+which lies in the plane and has angle }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u945\'83\'bf\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u945\'83\'bf \uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+=}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+2}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u960\'83\'ce\uc1 }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i/N}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+= }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+e}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+2 sin}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u945\'83\'bf \uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
++ }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+e}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+3 cos}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u945\'83\'bf\uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The position of point }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+on a circle with radius }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+r }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and center }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+v }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is then given as }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+v }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
++ }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+r}{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+. How well the circle match the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+gradient information is calculated as the average dot product of the gradient at position }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and the inward normal of the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+circle at point }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+which is equal to }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f8
+\uc2 \u8722\'81\'7c\uc1 }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The radius of the circle is increased with 0.5 voxels as long as the average dot product}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+also increases.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+T }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+(}{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+v}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+,}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+r}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+,}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+N}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+) = }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+1/}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+N N}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f8
+\uc2 \u8722\'81\'7c\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+1}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f8
+\uc2 \u8721\'87\'94\uc1 }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+=}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+0 }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+V}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+(}{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+v }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
++ }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+r}{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+) }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f9
+\u183\'3f }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f8
+\uc2 \u8722\'81\'7c\uc1 }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+d}{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+i}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+the GVF method may eliminate the gradient information for small low-contrast tubular structures. Thus to detect these tubular structures it is necessary to run the TDF two times. Once with a small}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+radius on the initial vector field to detect the small lowcontrast structures and once with the GVF vector field to detect the rest. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Different amounts of Gaussian blur can be used for the tube detection of large and small structures (}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u963\'83\'d0\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+small}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1032\loch\f7
+\uc2 \u963\'83\'d0\uc1 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+large ). The TDF response from each of these are combined by selecting the largest TDF value for}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+each voxel.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Centerline Extraction:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+//Centerline extraction from TDF results has been done by ridge traversal. But, the ridge traversal procedure is that it //can\uc2 \u8217\'81\'66t be run in parallel. Thus, the GVF vector field and the TDF result has to be transferred to the CPU. \uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+A new parallel centerline extraction (PCE) algorithm is used for centerline extraction from TDF results. w parallel centerline extraction (PCE) algorithm is presented. This centerline algorithm, unlike ridge}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+traversal, can be run efficiently in parallel on a GPU. The method has 4 main steps: Identifying centerpoints, filtering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+centerpoints, link centerpoints and centerline selection.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+1. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Identify candidate centerpoints}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+identifying all possible centerpoints. This is done by creating a 3D structure with the same size as the dataset. This structure is initialized to 0 for each voxel and all voxels with a TDF value above the threshold }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+T}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+c }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f6
+= }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+0.5 is set to 1.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+2. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Filter centerpoints}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The next step removes centerpoints that are either not in the center of a tube or too close to other centerpoints.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+3. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Link centerpoints}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+For each centerpoint, the method establishes links between the centerpoints to create centerlines.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+4. }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Centerline selection}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Due to noise and other image artifacts invalid centerpoints and centerlines may be created. However, these are usually short and not connected to the actual tubular structures. Thus invalid centerlines can often be discarded based on}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+their length.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\fs24\lang1033\loch\f5
+ }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Segmentation:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+//Segmentation from the centerline can be generated using the already computed GVF vector field. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+//This method is called Inverse Gradient Flow Tracking Segmentation because it for each voxel tracks the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+//centerline using the directions of the GVF vector field, but in the inverse direction. This segmentation method is a type //of seeded region growing, where the centerlines are the seeds and the direction and magnitude of the vectors from the //GVF vector field is used to determine if the segmentation is allowed to continue to grow.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+A data parallel version of this algorithm is used here.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+First, the centerlines, C, are dilated in parallel on the GPU and added to the segmentation}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+S}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+. Next, the neighboring voxels of }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+S }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is added to a queue }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Q}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+For each iteration, the GROW function runs a kernel on each}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+voxel }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+x }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+in the entire volume. If the voxel }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+x }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is part of }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Q}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+, the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+gradients of all unsegmented neighbors are checked to see}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+if they point to }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+x }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and has a larger magnitude than }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+x}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+. If such}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+a neighbor voxel }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+y }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is found, }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+x }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is added to }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+S}{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+, its neighbor }{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+y}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is added to }{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Q }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and the stopGrowing variable is set to false.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Since this variable is initialized to true for every iteration,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+the growing procedure will stop when no more voxels are}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+added.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Algorithm 2 }{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Parallel Inverse Gradient Flow Tracking}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+GPU Optimization:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Texture system}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The GPU has a specialized memory system for images, called the texture system. The texture system is optimized for fetching and caching data from 2D and 3D textures. The fetch unit of the texture system is also able to perform interpolation and data type conversion in hardware.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+By storing the volumes as 3D textures and using the texture system , it increases the speed}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+of fetching data and trilinear interpolation which is used in the TDF calculation when sampling arbitrary points on a circle.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Memory access latency can also be improved by reducing the number of bytes transferred from global memory to}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+the chip. The data can be stored as 16-bit integers (shorts) in textures or as floating point}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+number on a computer is by using 32 bits.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Stream compaction}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Stream compaction removes voxels that}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+should not be processed from the volume so that the kernel is only run for the valid voxels, thus no if statement is}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+needed.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Two methods for performing}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+stream compaction is parallel prefix sum and Histogram Pyramids . In this work, Histogram Pyramids has been used}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+due to the fact that this data structure has shown to be better}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+in some applications by exploiting the GPU\uc2 \u8217\'81\'66s texture system for faster memory access.\uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Work-group size}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Work-items, also called threads, are instances of a kernel and}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+are executed on the GPU in groups.  The work-items are also grouped}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+together at a higher level in software. These groups are called}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+work-groups in the OpenCL terminology (in CUDA they}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+are referred to as thread blocks). }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+If the number of workitems in a work-group is not a multiple of the unit of execution size, some of the GPUs\uc2 \u8217\'81\'66 functional units will be idle\uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+for each work-group that is executed.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Thus, the work-group sizes can greatly affect performance}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+and optimal size can vary a lot from device to device. There}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is a maximum number of work-items that can exists in one}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+work-group. }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Evaluation:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Comparison with other methods:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The proposed GPU implementation can be used together}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+with both the PCE algorithm and the ridge traversal algorithm for the centerline extraction step. Thus, with the serial}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+ridge traversal algorithm a hybrid solution is used where all}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+steps except the centerline extraction step is run on the GPU}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+For the centerline extraction, the proposed GPU method}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+is evaluated with both the proposed PCE centerline algorithm and the ridge traversal algorithm and compared to an}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+ITK filter based on the skeletonization algorithm.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Qualitative analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+For each modality, several datasets were processed using the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+proposed GPU implementation together with the PCE and}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+the ridge traversal centerline algorithms and region growing}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+/ thresholding together with skeletonization.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Speed and memory usage}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The speed of the method was measured on all the clinical}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+datasets using three different GPUs from both AMD and}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+NVIDIA. The implementation was}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+run using both 16-bit normalized integers and 32-bit floating}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+point vectors to see how the two different data types affected}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+the speed}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Quantitative analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Three generated datasets were used. Each with a}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+different amount of Gaussian additive noise. This was done}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+to show how well the different methods performs with increasing amounts of noise.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+The quantitative analysis was performed using the proposed GPU implementation with both PCE and ridge traversal and thresholding+skeletonization together with 16-bit normalized integers and 32-bit floating point numbers.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Results:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+Qualitative analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+These results indicate that the method is able to}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+extract tubular structures from several modalities and organs}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+with comparable quality by changing only a few parameters (Imin, I max, sigma , V, r , L -Table 1)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang1033\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Speed and memory usage}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+These results show}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+that using 16-bit normalized integers is faster than 32-bit on}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+AMD GPUs, and opposite on NVIDIA GPUs. The GPU methods are much faster than the simple serial segmentation and skeletonization method. And the memory}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+usage is significantly reduced when cropping and 16-bit normalized integers are used.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Quantitative analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Results show that using the}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+16-bit normalized integer format does not affect the quality}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+compared to using the standard 32-bit floating point numbers.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Discussion}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar{\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+Qualitative analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b0\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\qj\nowidctlpar\cf1\i0\b\kerning1\afs24\rtlch \ltrch\loch\fs24\lang9\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af11\langfe2052\dbch\af12\afs24\alang1081\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200\afs24\rtlch \ltrch\loch\fs24
+
+\par }
